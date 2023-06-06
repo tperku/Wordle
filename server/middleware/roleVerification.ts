@@ -7,7 +7,7 @@ export const verifyRoles = (allowedRoles) => {
             const [, token] = bearer.split(' ')
 
             const user = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
-            const result = allowedRoles.includes(user.role)
+            const result: boolean = allowedRoles.includes(user.role)
             if (!result) {
                 return res
                     .status(401)
