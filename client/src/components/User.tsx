@@ -15,7 +15,10 @@ function User() {
   function loginClick() {
     navigate("/login", { state: { from: location } });
   }
-
+  function registerClick() {
+    navigate("/register", { state: { from: location } });
+  }
+  
   async function logoutClick() {
     const username = auth.username;
     try {
@@ -47,9 +50,14 @@ function User() {
             Logout
           </button>
         ) : (
+          <div>
           <button className="submitButton" onClick={loginClick}>
             Login
           </button>
+          <button className="submitButton" onClick={registerClick}>
+            Register
+          </button>
+          </div>
         )}
       </div>
     </>

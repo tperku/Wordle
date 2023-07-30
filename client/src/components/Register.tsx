@@ -5,9 +5,9 @@ import NavBar from "./NavBar";
 import axios from "../api/axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const LOGIN_URL = "/user/signin";
+const REGISTER_URL = "/user/user";
 
-function Login() {
+function Register() {
   const { setAuth } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -22,8 +22,8 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        LOGIN_URL,
-        JSON.stringify({ username, password }),
+        REGISTER_URL,
+        JSON.stringify({ username, password, role: "USER" }),
         {
           headers: { "Content-Type": "application/json" },
         }
@@ -36,7 +36,7 @@ function Login() {
       setTerms(false);
       navigate(from, { replace: true });
     } catch (err) {
-      prompt("Wrong login");
+      prompt("Wrong register data");
       console.log(err);
     }
   };
@@ -79,10 +79,10 @@ function Login() {
           />
           <label htmlFor="checkbox">Accept condition terms</label>
         </div>
-        <button className="submitButton">LOGIN</button>
+        <button className="submitButton">REGISTER</button>
       </form>
     </>
   );
 }
 
-export default Login;
+export default Register;

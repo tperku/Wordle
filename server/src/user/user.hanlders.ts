@@ -27,7 +27,7 @@ export const createUser = async (req, res): Promise<void> => {
             secure: true,
             maxAge: 24 * 60 * 60 * 1000,
         })
-        res.json({ token: accessToken })
+        res.json({ role: newUser.role, token: accessToken })
     } catch (e) {
         res.status(400).json({ Error: e })
     }
