@@ -9,6 +9,7 @@ import { RequireAuth } from "./components/RequireAuth";
 import Unauthorized from "./components/Unauthorized";
 import User from "./components/User";
 import { PersistLogin } from "./components/PersistLogin";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
 
         <Route element={<PersistLogin />}>
